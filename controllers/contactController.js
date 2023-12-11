@@ -36,7 +36,11 @@ export const createContact = async (req, res, next) => {
 // Getting all the contacts
 export const getAllContacts = async (req, res, next) => {
   try {
-    const contacts = await Contact.find();
+    const queryObj = { ...req.query };
+    const excludeFields = ["page", "sort", "limit", "fields"];
+    excludeFields.forEach((el) => delete queryObj[el]);
+
+    const contacts = await Contact.find(queryObj);
 
     res.status(200).json({
       status: "success",
