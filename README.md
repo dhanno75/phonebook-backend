@@ -2,6 +2,9 @@
 
 The project builds RESTful APIs using Node.js, Express and Mongoose, ...
 
+## Postman Documentation
+https://documenter.getpostman.com/view/18850363/2s9YkjCPcy
+
 ## Manual Installation
 
 Clone the repo:
