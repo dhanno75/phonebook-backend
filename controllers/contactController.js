@@ -6,11 +6,11 @@ export const createContact = async (req, res, next) => {
     const { name, email, address, phone } = req.body;
 
     // Checking if the contact exists with same email address
-    const existingContact = await Contact.findOne({ email });
+    const existingContact = await Contact.findOne({ phone });
     if (existingContact) {
       res.status(400).json({
         status: "fail",
-        message: "Contact with this email address already exist.",
+        message: "Contact with this phone number already exist.",
       });
     } else {
       const newContact = await Contact.create({
